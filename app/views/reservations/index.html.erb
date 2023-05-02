@@ -1,0 +1,34 @@
+<div class="box">
+    <h2 class="title">予約済み一覧</h2>
+
+    <table class= "table">
+        <thead>
+            <th>画像</th>
+            <th>施設名</th>
+            <th>紹介文</th>
+            <th>合計料金</th>
+            <th>チェックイン</th>
+            <th>チェックアウト</th>
+            <th>予約確定日時</th>
+        </thead>
+
+        <tbody>
+            <% @reservations.each do |reservation| %>
+            <tr>
+        <td>
+            <%= link_to reservation.room do %>
+            <%= image_tag reservation.room.room_img.url if reservation.room.room_img? %>
+            <%= image_tag("https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png") unless reservation.room.room_img? %>
+            <% end %>
+            </td>
+        <td><%= link_to reservation.room.name,reservation.room %></td>
+        <td><%= reservation.room.description %></td>
+        <td>¥<%= reservation.sum_of_price %></td>
+        <td><%= l reservation.start_date, format: :short %></td>
+        <td><%= l reservation.end_date, format: :short %></td>
+        <td><%= l reservation.updated_at %></td>
+    </tr>
+        <% end %>
+        </tbody>
+    </table>
+</div>

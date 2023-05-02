@@ -1,16 +1,63 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Task2</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+ <head>
+   <title>Task2</title>
+   <meta name="viewport" content="width=device-width,initial-scale=1">
+   <%= csrf_meta_tags %>
+   <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-  <body>
-    <%= yield %>
-  </body>
+   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+ </head>
+
+ <body>
+ <% if flash[:notice] %>
+  <div class="notification is-info">
+   <p class="notice"><%= notice %></p>
+  </div>
+ <% end %>
+ <% if flash[:alert] %>
+  <div class="notification is-danger">
+   <p class="alert"><%= alert %></p>
+  </div>
+ <% end %>
+ 
+ <header>
+ <nav class="navbar is-dark">
+  <nav class="navbar-start has-background-dark" role="navigation" aria-label="dropdown navigation">
+    <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link is-arrowless">
+        <% if user_signed_in? %>
+        <%= current_user.username %>さん
+        <% if current_user.profile_image_id? %>
+        <%= image_tag current_user.profile_image_id.url %>
+        <% else %>
+        <%= image_tag("https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png") %>
+        <% end %>
+        </a>
+      <div class="navbar-dropdown">
+        <%= link_to "施設の新規登録",new_room_path,class: "navbar-item" %>
+        <%= link_to "予約済み一覧", reservations_path,class: "navbar-item" %>
+        <%= link_to "登録済み一覧", rooms_path,class: "navbar-item" %>
+        <%= link_to "アカウント設定", users_account_path,class: "navbar-item" %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: "navbar-item" %>
+      </div>
+    </div>
+  </nav>
+        <% else %>
+        <%= link_to "ログイン", new_user_session_path,class:"button is-info" %>
+        <%= link_to "新規登録", new_user_registration_path,class:"button is-Light" %>
+        <% end %>
+    <div class="navbar-end">
+    <div class="column is-one-fifth">
+      <%= link_to image_tag("https://rails-02-sample.herokuapp.com/assets/common/logo.png"), root_path %>
+    </div>
+    </div>
+</nav>
+</header>
+
+   <%= yield %>
+
+ </body>
 </html>

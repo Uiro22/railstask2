@@ -1,0 +1,38 @@
+<div class="box">
+<h2 class= "title">新規登録</h2>
+
+<%= render "shared/error", obj: @room %>
+ <%= form_with model: @room do |f| %>
+  <table class= "table">
+   <tr>
+    <th><%= f.label :name ,"施設名" %><span class="has-text-danger">*</span></th>
+    <td><%= f.text_field :name, :placeholder => "ルーム名を入力" %></td>
+   </tr>
+
+   <tr>
+    <th><%= f.label :description ,"施設詳細" %><span class="has-text-danger">*</span></th>
+    <td><%= f.text_area :description, :placeholder => "施設詳細を入力" %></td>
+   </tr>
+
+   <tr>
+    <th><%= f.label :price ,"料金" %><span class="has-text-danger">*</span></th>
+    <td><%= f.text_field :price, :placeholder => "一日あたりの料金を入力" %></td>
+   </tr>
+
+   <tr>
+    <th><%= f.label :address ,"住所" %><span class="has-text-danger">*</span></th>
+    <td><%= f.text_field :address, :placeholder => "住所を入力" %></td>
+   </tr>
+
+   <tr>
+    <th><%= f.label :room_img ,"施設画像" %>
+    <td><%= f.file_field :room_img %></td>
+   </tr>
+
+  </table>
+
+   <button class="button is-info">保存</button>
+   <button class="button"><%= link_to "キャンセル", :back %></button>
+ <% end %>
+ </div>
+ 

@@ -1,0 +1,17 @@
+<div class="box">
+    <%= link_to "アカウント", users_account_path,class:"subtitle" %>
+    <%= link_to "プロフィール", users_profile_path,class:"subtitle" %><br>
+
+    <h2 class= "title">アカウント</h2>
+
+    <%= form_with model: @user,url: edit_user_registration_path,method: :get do |f| %>
+    <%= f.label :メールアドレス %><br>
+    <%= @user.email %><br>
+
+    <%= f.label :パスワード %>
+    <p>*********</p>
+
+        <button class= "button is-info">編集</button>
+
+    <% end %>
+</div>
