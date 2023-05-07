@@ -3,7 +3,6 @@ class RoomsController < ApplicationController
     before_action :set_q
   
     def index
-        @rooms = current_user.rooms
     end
   
     def new

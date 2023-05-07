@@ -4,7 +4,6 @@ class ReservationsController < ApplicationController
 
     def index
         @user = current_user
-        @reservations = current_user.reservations
     end
 
     def new
