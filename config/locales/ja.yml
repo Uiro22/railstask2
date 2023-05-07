@@ -1,0 +1,21 @@
+ja:
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M"
+      short: "%Y/%m/%d"
+  activerecord:
+    models:
+      room: ルーム
+      reservation: 予約
+    attributes:
+      room:
+        name: ルーム名
+        description: ルーム紹介
+        price: 料金
+        address: 住所
+        room_img: ルーム画像
+
+      reservation:
+        start_date: 開始日
+        end_date: 終了日
+        number: 人数

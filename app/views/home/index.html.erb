@@ -1,0 +1,39 @@
+<div class="top_img">
+<%= image_tag("https://rails-02-sample.herokuapp.com/assets/home/cover-lg.jpg") %>
+    <h1 class="top_title">
+      Potepan Shareで
+      <br>
+      まだ体験したことのない
+      <br>
+      旅をしよう
+    </h1>
+    <div class="search_outerbox">
+      <%= search_form_for @q,url:search_rooms_path, html: { class: "search_form" } do |f| %>
+        <%= f.search_field :address_cont, placeholder:'エリア名を入力', class: 'search_field' %><br>
+        <button class="search_button">検索</button>
+      <% end %>
+    </div>
+</div>
+
+<div class="city_container">
+  <h2 class= "subtitle">おすすめのエリア</h2>
+    <div class="city_containers">
+    <div class="city_photo">
+    <span>東京</span>
+    <%= link_to image_tag("https://rails-02-sample.herokuapp.com/assets/home/recommend-area/tokyo.jpg"), search_rooms_path(q:{address_cont: "東京"}) %>
+    </div>
+    <div class="city_photo">
+    <span>大阪</span>
+    <%= link_to image_tag("https://rails-02-sample.herokuapp.com/assets/home/recommend-area/osaka.jpg"), search_rooms_path(q:{address_cont: "大阪"}) %>
+    </div>
+    <div class="city_photo">
+    <span>京都</span>
+    <%= link_to image_tag("https://rails-02-sample.herokuapp.com/assets/home/recommend-area/kyoto.jpg"), search_rooms_path(q:{address_cont: "京都"}) %>
+    </div>
+    <div class="city_photo">
+    <span>札幌</span>
+    <%= link_to image_tag("https://rails-02-sample.herokuapp.com/assets/home/recommend-area/sapporo.jpg"), search_rooms_path(q:{address_cont: "札幌"}) %>
+    </div>
+    </div>
+    </div>
+</div>

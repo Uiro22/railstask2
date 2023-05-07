@@ -1,0 +1,24 @@
+<div class="box">
+    <table class="table is-hoverable">
+    <tr>
+    <th>予約した部屋</th>
+    <td><%= @reservation.room.name %></td>
+    </tr>
+
+    <tr>
+    <th>チェックイン</th>
+    <td><%= l @reservation.start_date, format: :short %></td>
+    </tr>
+
+    <tr>
+    <th>チェックアウト</th>
+    <td><%= l @reservation.end_date, format: :short %></td>
+    </tr>
+
+    <tr>
+    <th>料金</th>
+    <td><%= @reservation.sum_of_price %>円</td>
+    </tr>
+
+    </table>
+</div>

@@ -1,0 +1,26 @@
+<div class="box">
+    <%= link_to "アカウント", users_account_path,class:"subtitle" %>
+    <%= link_to "プロフィール", users_profile_path,class:"subtitle" %><br>
+
+    <h2 class= "title">プロフィール</h2>
+
+    <%= form_with model: @user do |f| %>
+    <% if @user.profile_image_id? %>
+        <%= image_tag @user.profile_image_id.url %>
+    <% else %>
+    <%= image_tag("https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png") %>
+    <% end %><br>
+
+    <%= f.label :profile_image_id,"アイコン画像" %><br>
+    <%= f.file_field :profile_image_id %><br>
+
+    <%= f.label :username,"名前" %><br>
+    <%= f.text_field :username,placeholder:"名前を入力" %><br>
+
+    <%= f.label :profile,"自己紹介" %><br>
+    <%= f.text_area :profile,placeholder:"自己紹介を入力" %><br>
+
+        <button class= "button is-info" >更新</button>
+
+    <% end %>
+</div>
