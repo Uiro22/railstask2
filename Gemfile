@@ -9,6 +9,7 @@ gem 'devise-i18n'
 gem 'rails-i18n'
 gem 'ransack'
 gem 'bulma-rails'
+gem 'pry-byebug', group: :development
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.7'

@@ -1,7 +1,7 @@
 class Reservation < ApplicationRecord
     belongs_to :user, optional: true
     belongs_to :room
-  
+    
     validates :start_date,presence: true
     validates :end_date,presence: true
     validates :number,presence: true,numericality: true,inclusion: {in: 1..10}
